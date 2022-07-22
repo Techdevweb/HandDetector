@@ -38,7 +38,7 @@ function App() {
       canvasRef.current.width=vW
       
       const detect=await hand.estimateHands(v)
-
+      console.log('====================================');
       console.log(detect);
       console.log('====================================');
 
