@@ -37,10 +37,12 @@ function App() {
       canvasRef.current.height=vH
       canvasRef.current.width=vW
       
-      const detect=await hand.estimateHands(v)
-      console.log('====================================');
-      console.log(detect);
-      console.log('====================================');
+      const detect=await hand.estimateHands(v);
+      if (detect.length > 0) {
+        console.log('====================================');
+        console.log(detect);
+        console.log('====================================');
+      }
 
     }
 
