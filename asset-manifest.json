@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/HandDetector/static/css/main.073c9b0a.css",
+    "main.js": "/HandDetector/static/js/main.e849ce7d.js",
+    "static/js/787.673eec85.chunk.js": "/HandDetector/static/js/787.673eec85.chunk.js",
+    "index.html": "/HandDetector/index.html",
+    "main.073c9b0a.css.map": "/HandDetector/static/css/main.073c9b0a.css.map",
+    "main.e849ce7d.js.map": "/HandDetector/static/js/main.e849ce7d.js.map",
+    "787.673eec85.chunk.js.map": "/HandDetector/static/js/787.673eec85.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.e849ce7d.js"
+  ]
+}
