@@ -4,38 +4,40 @@ import * as handpose from '@tensorflow-models/handpose'//Brings in Handpose from
 import Webcam from 'react-webcam'//Brings in React's web cam
 import './App.css';
 
-const drawing=(pred,canv)=>{
 
-  if(pred.length >0){
-    //Check whether array is empty or not
-    pred.forEach((pred) => {
-      //For each and every non empty array
-      const cord=pred.landmarks//Grab all the co-ordinates
-
-      //Now let's go through each co-ordinate
-      for (let index = 0; index < cord.length; index++) {
-        const x=cord[index][0]
-        console.log(x)
-
-        const y=cord[index][1]
-        console.log(y)
-
-        //Let's draw
-        canv.beginPath()
-        canv.arc(x,y,4,0,3*Math.PI)
-        canv.fillStyle='red'
-        canv.fill()
-        
-      }
-    });
-
-  }
-}
 
 function App() {
 
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
+
+  const drawing=(pred,canv)=>{
+
+    if(pred.length >0){
+      //Check whether array is empty or not
+      pred.forEach((pred) => {
+        //For each and every non empty array
+        const cord=pred.landmarks//Grab all the co-ordinates
+  
+        //Now let's go through each co-ordinate
+        for (let index = 0; index < cord.length; index++) {
+          const x=cord[index][0]
+          console.log(x)
+  
+          const y=cord[index][1]
+          console.log(y)
+  
+          //Let's draw
+          canv.beginPath()
+          canv.arc(x,y,4,0,3*Math.PI)
+          canv.fillStyle='red'
+          canv.fill()
+          
+        }
+      });
+  
+    }
+  }
 
   const handsUp=async()=>{
 
