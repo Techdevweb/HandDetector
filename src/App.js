@@ -1,7 +1,8 @@
-import React, {useRef} from 'react' //Allows to use Referances
+import React, {useRef,useState} from 'react' //Allows to use Referances
 import * as tf from '@tensorflow/tfjs'//Brings in Tensorflow
 import * as handpose from '@tensorflow-models/handpose'//Brings in Handpose from Tfjs
 import Webcam from 'react-webcam'//Brings in React's web cam
+import * as fp from 'fingerpose'//Key for detecting our hand gestures
 import './App.css';
 
 
@@ -70,6 +71,19 @@ function App() {
       console.log('====================================');
       console.log(detect);
       console.log('====================================');
+
+      //Let's detect our gestures
+      if (detect.length>0) {
+        const GE = new fp.GestureEstimator([//Setting up gesture estimator
+          fp.Gestures.VictoryGesture,
+          fp.Gestures.ThumbsUpGesture
+      ])
+      const gesture=await GE.estimate(detect[0].landmarks,8)//Confidence lvl is 8
+      
+      console.log('====================================');
+      console.log(gesture)//Check consol
+      console.log('====================================');
+      }
 
       const canv=canvasRef.current.getContext('2d')
       drawing(detect, canv)
