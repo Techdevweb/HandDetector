@@ -101,8 +101,8 @@ function App() {
               position:'absolute',
               margin:'auto',
               textAlign:'center',
-              width:800,
-              height:700
+              width:900,
+              height:800
             }}
           />
           <canvas ref={canvasRef}
@@ -110,8 +110,8 @@ function App() {
               position:'absolute',
               margin:'auto',
               textAlign:'center',
-              width:400,
-              height:400
+              width:900,
+              height:800
             }}
           />
           
