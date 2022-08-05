@@ -1,12 +1,12 @@
 # A Gesture Detection Web App that detects hand gestures
 
 
-##Technologies used
+# Technologies used
 
-###ReactJS
-###TensorflowJS
-###Handpose
-###Fingerpose
+### ReactJS
+### TensorflowJS
+### Handpose
+### Fingerpose
 
 # Getting Started with Create React App
 
