@@ -1,6 +1,8 @@
 # A Gesture Detection Web App that detects hand gestures
 
+
 ##Technologies used
+
 ###ReactJS
 ###TensorflowJS
 ###Handpose
