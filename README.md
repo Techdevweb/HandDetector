@@ -1,3 +1,11 @@
+# A Gesture Detection Web App that detects hand gestures
+
+##Technologies used
+###ReactJS
+###TensorflowJS
+###Handpose
+###Fingerpose
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
