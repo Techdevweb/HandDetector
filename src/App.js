@@ -3,6 +3,7 @@ import * as tf from '@tensorflow/tfjs'//Brings in Tensorflow
 import * as handpose from '@tensorflow-models/handpose'//Brings in Handpose from Tfjs
 import Webcam from 'react-webcam'//Brings in React's web cam
 import * as fp from 'fingerpose'//Key for detecting our hand gestures
+import * as fpg from 'fingerpose-gestures'; // Bring in some extra gestures
 import './App.css';
 
 
@@ -30,7 +31,7 @@ function App() {
   
           //Let's draw
           canv.beginPath()
-          canv.arc(x,y,4,0,3*Math.PI)
+          canv.arc(x,y,5,0,3*Math.PI)
           canv.fillStyle='red'
           canv.fill()
           
@@ -75,14 +76,29 @@ function App() {
       //Let's detect our gestures
       if (detect.length>0) {
         const GE = new fp.GestureEstimator([//Setting up gesture estimator
+          fp.Gestures.ThumbsUpGesture,
+          fpg.Gestures.thumbsDownGesture,
+          fpg.Gestures.fingerSplayedGesture,
           fp.Gestures.VictoryGesture,
-          fp.Gestures.ThumbsUpGesture
       ])
       const gesture=await GE.estimate(detect[0].landmarks,8)//Confidence lvl is 8
-      
+
       console.log('====================================');
       console.log(gesture)//Check consol
       console.log('====================================');
+
+      if (gesture.gestures.length > 0) {
+
+        document.getElementById('App-text').innerHTML = gesture.gestures[0].name;
+      }
+
+      else {
+        document.getElementById('App-text').innerHTML = 'Unknown Gesture';
+      }
+      }
+
+      else {
+        document.getElementById('App-text').innerHTML = 'No Hands Detected'
       }
 
       const canv=canvasRef.current.getContext('2d')
@@ -114,8 +130,8 @@ function App() {
               height:800
             }}
           />
-          
       </header>
+      <p id='App-text'>No Hands Detected</p>
     </div>
   );
 }
